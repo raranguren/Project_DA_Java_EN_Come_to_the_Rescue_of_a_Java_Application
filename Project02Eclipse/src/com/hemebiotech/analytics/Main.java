@@ -5,10 +5,9 @@ public class Main {
     public static void main(String[] args) {
 
         new AnalyticsCounter()
-                .readSymptomsFromFile()
+                .readSymptomsFromFile("symptoms.txt")
                 .countSymptoms()
                 .sortResults()
-                .writeResultsToFile();
-
+                .writeResultsToFile("result.out");
     }
 }

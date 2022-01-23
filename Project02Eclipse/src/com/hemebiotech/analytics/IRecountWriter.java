@@ -14,5 +14,5 @@ public interface IRecountWriter {
      *
      * @param recountMap a collection of symptom name and a number
      */
-    void writeRecount(Map<String,Number> recountMap);
+    void writeRecount(Map<String,Integer> recountMap);
 }
