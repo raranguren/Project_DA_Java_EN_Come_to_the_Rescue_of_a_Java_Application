@@ -11,14 +11,7 @@ public class AnalyticsCounter {
 	private int rashCount;
 	private int pupilCount;
 
-	public void run() {
-		readSymptomsFromFile();
-		countSymptoms();
-		sortResults();
-		writeResultsToFile();
-	}
-
-	private void readSymptomsFromFile() {
+	public AnalyticsCounter readSymptomsFromFile() {
 
 		try {
 			BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
@@ -42,17 +35,20 @@ public class AnalyticsCounter {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return this;
 	}
 
-	private void countSymptoms() {
+	public AnalyticsCounter countSymptoms() {
 		// TODO split reader into read+count
+		return this;
 	}
 
-	private void sortResults() {
+	public AnalyticsCounter sortResults() {
 		// TODO sort results
+		return this;
 	}
 
-	private void writeResultsToFile() {
+	public void writeResultsToFile() {
 		try {
 			FileWriter writer = new FileWriter ("result.out");
 			writer.write("headache: " + headacheCount + "\n");
@@ -63,6 +59,5 @@ public class AnalyticsCounter {
 			e.printStackTrace();
 		}
 	}
-
 
 }

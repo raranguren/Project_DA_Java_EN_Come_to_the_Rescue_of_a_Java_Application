@@ -4,7 +4,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        new AnalyticsCounter().run();
+        new AnalyticsCounter()
+                .readSymptomsFromFile()
+                .countSymptoms()
+                .sortResults()
+                .writeResultsToFile();
 
     }
 }
