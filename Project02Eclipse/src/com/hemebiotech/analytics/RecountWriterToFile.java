@@ -29,17 +29,9 @@ public class RecountWriterToFile implements IRecountWriter {
     public void writeRecount(Map<String, Integer> recountMap) {
         if (recountMap == null) recountMap = new HashMap<>();
         if (filePath != null) {
-            try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
-                for (String symptom : recountMap.keySet()) {
-                    writer.write(
-                            symptom
-                            + " = "
-                            + recountMap.get(symptom)
-                            + "\n"
-                    );
-                }
-                writer.close();
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+                for (String symptom : recountMap.keySet())
+                    writer.write(symptom + "=" + recountMap.get(symptom) + "\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }

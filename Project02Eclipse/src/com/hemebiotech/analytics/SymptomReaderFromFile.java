@@ -31,15 +31,12 @@ public class SymptomReaderFromFile implements ISymptomReader {
 		ArrayList<String> allSymptoms = new ArrayList<>();
 		
 		if (filePath != null) {
-			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filePath));
+			try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 				String line = reader.readLine();
-				
 				while (line != null) {
 					allSymptoms.add(line);
 					line = reader.readLine();
 				}
-				reader.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
